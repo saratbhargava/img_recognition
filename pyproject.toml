@@ -1,7 +1,6 @@
-[tool.poetry]
-name = "img_recognition"
-version = "0.1.0"
-description = ""
-authors = ["Sarat Chinni"]
-license = "MIT"
-
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
