@@ -1,3 +1,3 @@
-from img_recognition.layers.conv_layer import ResNetBlock
+from img_recognition.layers.conv_layer import ResNetBlock, ResNetChangeBlock
 
-__all__ = ['ResNetBlock']
+__all__ = ['ResNetBlock', 'ResNetChangeBlock']
