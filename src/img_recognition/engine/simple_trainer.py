@@ -8,10 +8,13 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 
+logger = logging.getLogger(__name__)
+
 def train_fn(config: CfgNode,
              model: nn.Module, 
              train_dataloader: DataLoader,
-             loss_fn, optimizer):
+             loss_fn: torch.nn.modules.loss._Loss,
+             optimizer: torch.optim.Optimizer) -> None:
     
     device = config.MODEL.DEVICE
 
@@ -32,5 +35,5 @@ def train_fn(config: CfgNode,
     accu = torch.argmax(y_pred, dim=-1) == y_data
     accu = sum(accu)/len(accu)
     accu = accu.item()
-    print("loss="+str(loss), end=' ')
-    print("accu="+str(accu), end=' ')
+    logger.info(f'Train loss: {loss:.4f}, accu: {accu:.4f}')
+    
