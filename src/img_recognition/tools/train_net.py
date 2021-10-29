@@ -8,13 +8,13 @@ from os import mkdir
 import torch.nn.functional as F
 
 sys.path.append('.')
-from config import cfg
-from data import make_data_loader
-from engine.example_trainer import do_train
-from modeling import build_model
-from solver import make_optimizer
+from img_recognition.config import cfg
+from img_recognition.data import make_data_loader
+from img_recognition.engine.example_trainer import do_train
+from img_recognition.modeling import build_model
+from img_recognition.solver import make_optimizer
 
-from utils.logger import setup_logger
+from img_recognition.utils.logger import setup_logger
 
 
 def train(cfg):
