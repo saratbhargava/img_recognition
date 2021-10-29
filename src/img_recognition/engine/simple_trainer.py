@@ -35,5 +35,5 @@ def train_fn(config: CfgNode,
     accu = torch.argmax(y_pred, dim=-1) == y_data
     accu = sum(accu)/len(accu)
     accu = accu.item()
-    logger.info(f'Train loss: {loss:.4f}, accu: {accu:.4f}')
+    logger.info(f'Train loss: {loss:.4f}, Train accu: {accu:.4f}')
     
