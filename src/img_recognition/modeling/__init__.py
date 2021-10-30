@@ -1,5 +1,3 @@
-
-
 from .example_model import ResNet18
 
 

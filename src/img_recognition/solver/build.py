@@ -1,5 +1,3 @@
-
-
 import torch
 
 
@@ -14,5 +12,7 @@ def make_optimizer(cfg, model):
             lr = cfg.SOLVER.BASE_LR * cfg.SOLVER.BIAS_LR_FACTOR
             weight_decay = cfg.SOLVER.WEIGHT_DECAY_BIAS
         params += [{"params": [value], "lr": lr, "weight_decay": weight_decay}]
-    optimizer = getattr(torch.optim, cfg.SOLVER.OPTIMIZER_NAME)(params, momentum=cfg.SOLVER.MOMENTUM)
+    optimizer = getattr(torch.optim, cfg.SOLVER.OPTIMIZER_NAME)(
+        params, momentum=cfg.SOLVER.MOMENTUM
+    )
     return optimizer

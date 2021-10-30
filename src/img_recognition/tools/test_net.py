@@ -1,5 +1,3 @@
-
-
 import argparse
 import os
 import sys
@@ -7,7 +5,7 @@ from os import mkdir
 
 import torch
 
-sys.path.append('.')
+sys.path.append(".")
 from config import cfg
 from data import make_data_loader
 from engine.example_inference import inference
@@ -20,8 +18,12 @@ def main():
     parser.add_argument(
         "--config_file", default="", help="path to config file", type=str
     )
-    parser.add_argument("opts", help="Modify config options using the command-line", default=None,
-                        nargs=argparse.REMAINDER)
+    parser.add_argument(
+        "opts",
+        help="Modify config options using the command-line",
+        default=None,
+        nargs=argparse.REMAINDER,
+    )
 
     args = parser.parse_args()
 
@@ -42,7 +44,7 @@ def main():
 
     if args.config_file != "":
         logger.info("Loaded configuration file {}".format(args.config_file))
-        with open(args.config_file, 'r') as cf:
+        with open(args.config_file, "r") as cf:
             config_str = "\n" + cf.read()
             logger.info(config_str)
     logger.info("Running with config:\n{}".format(cfg))
@@ -54,5 +56,5 @@ def main():
     inference(cfg, model, val_loader)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
